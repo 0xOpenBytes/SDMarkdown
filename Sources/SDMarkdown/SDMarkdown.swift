@@ -18,13 +18,15 @@ public struct SDMarkdown {
     
     public init(
         screen: SomeScreen,
-        customizedMarkdown: [String: SDCustomizedMarkdown]? = nil,
+        customizedMarkdown: [SDCustomizedMarkdown]? = nil,
         markdownBuilder: SomeViewMarkdownBuildable? = nil
     ) {
         self.screens = [screen]
         
         if let customizedMarkdown = customizedMarkdown {
-            SomeCustomView.customizedMarkdown = customizedMarkdown
+            customizedMarkdown.forEach {
+                SomeCustomView.customizedMarkdown[$0.id] = $0
+            }
         }
         
         if let markdownBuilder = markdownBuilder {
@@ -40,13 +42,15 @@ public struct SDMarkdown {
     
     public init(
         screens: [SomeScreen],
-        customizedMarkdown: [String: SDCustomizedMarkdown]? = nil,
+        customizedMarkdown: [SDCustomizedMarkdown]? = nil,
         markdownBuilder: SomeViewMarkdownBuildable? = nil
     ) {
         self.screens = screens
         
         if let customizedMarkdown = customizedMarkdown {
-            SomeCustomView.customizedMarkdown = customizedMarkdown
+            customizedMarkdown.forEach {
+                SomeCustomView.customizedMarkdown[$0.id] = $0
+            }
         }
         
         if let markdownBuilder = markdownBuilder {
