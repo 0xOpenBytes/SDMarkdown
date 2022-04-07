@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "screendata-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ServerDriven/ScreenData-swift",
+      "state" : {
+        "revision" : "20e1b73ec66076494135b041a29d43ca0870fd45",
+        "version" : "0.4.2"
+      }
+    }
+  ],
+  "version" : 2
+}
