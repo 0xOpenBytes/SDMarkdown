@@ -11,6 +11,23 @@ public struct SDMarkdown {
     public var screens: [SomeScreen]
     
     public init(
+        screen: SomeScreen
+    ) {
+        self.screens = [screen]
+    }
+    
+    public init(
+        screen: SomeScreen,
+        customizedMarkdown: [String: SDCustomizedMarkdown],
+        markdownBuilder: SomeViewMarkdownBuildable
+    ) {
+        self.screens = [screen]
+        
+        SomeCustomView.customizedMarkdown = customizedMarkdown
+        SomeView.markdownBuilder = markdownBuilder
+    }
+    
+    public init(
         screens: [SomeScreen]
     ) {
         self.screens = screens
